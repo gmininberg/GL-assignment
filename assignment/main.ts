@@ -1,6 +1,7 @@
 import { MediaProcessor, MediaProcessorConnector } from "@vonage/media-processor";
 import CameraSource from "./camera-source";
-import EmptyTransformer from "./empty-transform";
+import EmptyTransformer from "./EmptyTransformer";
+import TestTransformer from "./TestTransformer";
 
 async function main() {
   const sourceSelector: any =document.getElementById('sourceSelector');
@@ -13,7 +14,8 @@ async function main() {
       for(let i = 0; i < 12; i++){
         let mediaProcessor: MediaProcessor = new MediaProcessor()
         let transformers: Array<Transformer> = []
-        transformers.push(new EmptyTransformer())
+        transformers.push(new TestTransformer())
+        // transformers.push(new EmptyTransformer())
         mediaProcessor.setTransformers(transformers)
         let connector: MediaProcessorConnector = new MediaProcessorConnector(mediaProcessor)
         source_.setMediaProcessorConnector(connector)
