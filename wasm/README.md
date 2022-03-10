@@ -82,7 +82,7 @@ cd build_wasm_simd
 
 ## building the code:
 ```
-bazel build :tflite-simd-wasm --copt='-msimd128'
+bazel build :simd-wasm --copt='-msimd128'
 ```
 
 ## extra reading:
