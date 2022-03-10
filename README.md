@@ -5,6 +5,10 @@ resize the video fram from 1280x720 to 160x120 with CPU performance which is bet
 the results will be tested on the same computer (so there is no magic number.
 use webGL or openGL from wasm.
 
+## how to run it
+`npm install`
+`npm run dev`
+
 ## the assignment
 1. resize 
 2. resize and chnage color to monochrome

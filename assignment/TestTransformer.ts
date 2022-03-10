@@ -17,15 +17,15 @@ class TestTransformer implements Transformer {
   }
 
   transform(frame:VideoFrame, controller:TransformStreamDefaultController) {
-    let buffer: ArrayBuffer = new ArrayBuffer(frame.allocationSize());
-    let format: string | null = frame.format;
-    frame.copyTo(buffer).then(res => {
-      let input: Uint8Array = new Uint8Array(buffer);
-      this.wamInfo_.wasmInterface_.HEAPU8.set(input, this.wamInfo_.inputMemoryOffset_);
-      let output: Uint8ClampedArray = new Uint8ClampedArray(this.wamInfo_.wasmInterface_.HEAPU8.slice(this.wamInfo_.outputMemoryOffset_, this.wamInfo_.outputMemoryOffset_ + 410000));
-    }).catch(e => {
-    })
-    
+    // let buffer: ArrayBuffer = new ArrayBuffer(frame.allocationSize());
+    // let format: string | null = frame.format;
+    // frame.copyTo(buffer).then(res => {
+    //   let input: Uint8Array = new Uint8Array(buffer);
+    //   this.wamInfo_.wasmInterface_.HEAPU8.set(input, this.wamInfo_.inputMemoryOffset_);
+    //   let output: Uint8ClampedArray = new Uint8ClampedArray(this.wamInfo_.wasmInterface_.HEAPU8.slice(this.wamInfo_.outputMemoryOffset_, this.wamInfo_.outputMemoryOffset_ + 410000));
+    // }).catch(e => {
+    // })
+    this.wamInfo_.wasmInterface_._someFunction2(2)
     controller.enqueue(frame)
   }
 

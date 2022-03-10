@@ -1,8 +1,6 @@
 #include <cstdio>
 #include <emscripten.h>
 
-
-
 char inputBuffer[410000];
 char outputBuffer[410000];
 
@@ -20,6 +18,13 @@ char* getOutputBuffer() {
 
 EMSCRIPTEN_KEEPALIVE
 void someFunction() {
-  printf("some function \r\n");
+  printf("someFunction \r\n");
 }
+
+EMSCRIPTEN_KEEPALIVE
+int someFunction2(int x){
+  printf("someFunction x=%d\r\n", x);
+  return 0;
+}
+
 }//extern "C"

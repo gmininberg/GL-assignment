@@ -12,33 +12,6 @@ http_archive(
   ],
 )
 
-#use the one that media pipe is using (this is for our needed stuff from tflite)
-#also if tflite have some pathces we need to copy them too
-_TENSORFLOW_GIT_COMMIT = "18a1dc0ba806dc023808531f0373d9ec068e64bf"
-_TENSORFLOW_SHA256 = "85b90416f7a11339327777bccd634de00ca0de2cf334f5f0727edcb11ff9289a"
-http_archive(
-    name = "org_tensorflow",
-    urls = [
-      "https://github.com/tensorflow/tensorflow/archive/%s.tar.gz" % _TENSORFLOW_GIT_COMMIT,
-    ],
-    patches = [
-        "@//third_party:org_tensorflow_compatibility_fixes.diff",
-        "@//third_party:org_tensorflow_objc_cxx17.diff",
-        "@//third_party:org_tensorflow_custom_ops.diff",
-    ],
-    patch_args = [
-        "-p1",
-    ],
-    strip_prefix = "tensorflow-%s" % _TENSORFLOW_GIT_COMMIT,
-    sha256 = _TENSORFLOW_SHA256,
-)
-
-load("@org_tensorflow//tensorflow:workspace3.bzl", "tf_workspace3")
-tf_workspace3()
-
-load("@org_tensorflow//tensorflow:workspace2.bzl", "tf_workspace2")
-tf_workspace2()
-
 load("@io_bazel_rules_closure//closure:repositories.bzl", "rules_closure_dependencies", "rules_closure_toolchains")
 rules_closure_dependencies()
 rules_closure_toolchains()
@@ -52,13 +25,6 @@ http_archive(
 load("@rules_foreign_cc//:workspace_definitions.bzl", "rules_foreign_cc_dependencies")
 
 rules_foreign_cc_dependencies()
-
-#the mediapipe version we want to use.
-http_archive(
-   name = "org_mediapipe",
-   strip_prefix = "mediapipe-0.8.9",
-   url = "https://github.com/google/mediapipe/archive/refs/tags/v0.8.9.zip",
-)
 
 http_archive(
     name = "emsdk",

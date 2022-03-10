@@ -1,11 +1,10 @@
-
-// @ts-ignore
 import SimdModule from './simd.js'
 
 export interface WasmInterface extends EmscriptenModule {
   _getInputBuffer(): number
   _getOutputBuffer(): number
   _someFunction(): number
+  _someFunction2(x: number): number
 }
 
 export class WasmInfo {

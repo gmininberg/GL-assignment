@@ -11,7 +11,7 @@ async function main() {
     const sourceType = sourceSelector.options[sourceSelector.selectedIndex].value
     if(sourceType === 'camera'){
       
-      for(let i = 0; i < 12; i++){
+      for(let i = 0; i < 1; i++){
         let mediaProcessor: MediaProcessor = new MediaProcessor()
         let transformers: Array<Transformer> = []
         transformers.push(new TestTransformer())
