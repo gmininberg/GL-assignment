@@ -6,7 +6,12 @@ the results will be tested on the same computer (so there is no magic number.
 use webGL or openGL from wasm.
 
 ## how to run it
+https://github.com/nvm-sh/nvm
+
+`nvm install 16`
+
 `npm install`
+
 `npm run dev`
 
 ## the assignment
